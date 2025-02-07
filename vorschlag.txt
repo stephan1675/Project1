@@ -1,0 +1,49 @@
+#include <iostream>
+#include <fstream>
+#include <memory>
+#include <cstdio>
+#include <vector>
+#include <string>
+
+int execRead(std::string& command, std::vector<std::string>& lines, const std::string& commandOutput) {
+    lines.clear();  // Vorherige Inhalte löschen
+
+    std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(command.c_str(), "r"), pclose);
+    if (!pipe) {
+        std::cerr << "Fehler: Konnte den Befehl nicht ausführen!\n";
+        return -1;
+    }
+
+    std::ofstream file(commandOutput);
+    if (!file) {
+        std::cerr << "Fehler beim Öffnen der Datei: " << commandOutput << std::endl;
+        return -1;
+    }
+
+    char buffer[128];
+    int count = 0;
+
+    while (fgets(buffer, sizeof(buffer), pipe.get()) != nullptr) {
+        lines.push_back(buffer);  // In den Vektor speichern
+        file << buffer;           // Gleichzeitig in die Datei schreiben
+        count++;
+    }
+
+    return count;  // Anzahl der Zeilen zurückgeben
+}
+
+int main() {
+    std::vector<std::string> outputLines;
+    std::string command = "ls";
+    std::string filePath = "output.txt";
+
+    int result = execRead(command, outputLines, filePath);
+
+    if (result != -1) {
+        std::cout << "Es wurden " << result << " Zeilen gespeichert.\n";
+    } else {
+        std::cerr << "Fehler beim Ausführen des Befehls.\n";
+    }
+
+    return 0;
+}
