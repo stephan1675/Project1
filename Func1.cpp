@@ -100,7 +100,14 @@ std::unique_ptr<FILE, decltype(&pclose)> pipe(popen(command.c_str(),"r"),pclose)
     int count = 0;
     while (fgets(buffer, sizeof(buffer), pipe.get())) 
     {
-        lines.push_back(buffer);  // add line to the dynamic vector
+        std::string line(buffer);
+    
+    // Entferne das letzte Zeichen, wenn es ein '\n' ist
+        if (!line.empty() && line.back() == '\n') 
+        {
+        line.pop_back();
+        }
+        lines.push_back(line);  // add line to the dynamic vector
         count++;
     }
 

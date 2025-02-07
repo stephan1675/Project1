@@ -10,6 +10,10 @@
 
 int main(){
 
+std::string prices = "prices.txt";
+std::string data = "data2.txt";
+std::string tempData = "tempData.txt";
+
 //read in the whole text and save as one string
 std::string text;
 readIn(text, "Data1.txt");
@@ -22,14 +26,18 @@ int count= saveLines( lines, "Data1.txt");
 printVector(lines);
 
 lines.push_back("Ich schreib was Neues rein");
-std::cout<<saveVector(lines, "newData")<<" lines have been saved\n";
+std::cout<<saveVector(lines, data)<<" lines have been saved\n";
 
 
 
 std::string command = "lsb_release -a"; //what command to exec
-std::cout<<execRead(command, lines)<<" lines have been retured for the command "<<command<<"\n";
-
+std::string bitcoinPrice = "curl -s \"https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd\" | jq '.bitcoin.usd'";
+std::cout<<execRead(command, lines)<<" lines have been retured from the command "<<command<<"\n";
 printVector(lines);
+//bitcoinprice on coingecko and saving it
+std::cout<<execRead(bitcoinPrice, lines)<<" lines have been retured from the command "<<command<<"\n";
+printVector(lines);
+std::cout<<saveVector(lines, prices)<<" lines have been saved\n";
 
 
     return 0;

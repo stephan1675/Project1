@@ -1,0 +1,17 @@
+
+shell kommandos:
+*****************
+curl:
+curl (Client URL) ist ein Kommandozeilen-Tool, mit dem du Daten von oder zu URLs übertragen kannst. 
+Es unterstützt verschiedene Protokolle wie HTTP, HTTPS, FTP, SFTP und mehr.
+
+
+
+
+c++ code:
+**********
+system():
+system("ls -l");  // Führt "ls -l" in der Shell aus
+
+std::unique_ptr<FILE, decltype(&pclose)> pipe(popen("ls -l", "r"), pclose); //führt shellkommando aus und liest es
+
