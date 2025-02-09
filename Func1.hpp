@@ -1,5 +1,7 @@
 #include <iostream>
 
+extern std::atomic<bool> signalReceived;
+
 /**
  * @brief reads in a text as a complete string
  * 
@@ -55,3 +57,18 @@ void printVector (std::vector<std::string> dynamic);
  * @return int      how many elements were saved
  */
 int saveVectorA(std::vector<std::string>& lines, const std::string& where);
+
+
+/**
+ * @brief This functions waits for a SIGUSR1 signal to excec a command
+ * 
+ */
+void waitForSignal(std::string& command);
+
+
+/**
+ * @brief This function is a signal Handler for the signal() call
+ * 
+ * @param signal 
+ */
+void handleSignal(int signal);

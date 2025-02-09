@@ -6,6 +6,13 @@
 #include <memory>
 #include <chrono>
 #include <thread>
+#include <csignal>
+#include <cstdlib>
+#include <unistd.h>
+#include <atomic>
+
+
+std::atomic<bool> signalReceived(false);
 
 
 /**
@@ -151,3 +158,42 @@ void printVector (std::vector<std::string> dynamic){
     std::cout<<line<< std::endl;
 }
 }
+
+
+/**
+ * @brief This function is a signal Handler for the signal() call
+ * 
+ * @param signal 
+ */
+void handleSignal(int signal){
+    if (signal == SIGUSR1) {
+        signalReceived = true; 
+    }
+}
+
+
+/**
+ * @brief This functions waits for a SIGUSR1 signal to excec a command
+ * 
+ */
+void waitForSignal(std::string& command){
+
+    std::cout<<"Waiting for signal:";
+    signal(SIGUSR1, handleSignal);  
+    
+    while (1)
+    {
+        pause();
+        if (signalReceived)
+        {
+            std::cout<<"Excecuting "<<command<<" :\n";
+            std::system(command.c_str());
+            signalReceived=false;
+        }
+        
+    }
+
+}
+
+
+
