@@ -45,3 +45,13 @@ int execRead(std::string& command, std::vector<std::string>& lines);
  * @param dynamic the vector
  */
 void printVector (std::vector<std::string> dynamic);
+
+
+/**
+ * @brief This function saves a dynamic vector line by line to a file in appendix mode
+ * 
+ * @param lines     what to save    
+ * @param where     where to save
+ * @return int      how many elements were saved
+ */
+int saveVectorA(std::vector<std::string>& lines, const std::string& where);

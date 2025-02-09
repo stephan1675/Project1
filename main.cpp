@@ -4,6 +4,8 @@
 #include <string>
 #include <cstdlib>
 #include <memory>
+#include <chrono>
+#include <thread>
 
 #include "Func1.hpp"
 
@@ -34,11 +36,18 @@ std::string command = "lsb_release -a"; //what command to exec
 std::string bitcoinPrice = "curl -s \"https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd\" | jq '.bitcoin.usd'";
 std::cout<<execRead(command, lines)<<" lines have been retured from the command "<<command<<"\n";
 printVector(lines);
-//bitcoinprice on coingecko and saving it
+//bitcoinprice on coingecko and saving it in loop 1 hour
+while (1)
+{
+    
+
+
 std::cout<<execRead(bitcoinPrice, lines)<<" lines have been retured from the command "<<command<<"\n";
 printVector(lines);
-std::cout<<saveVector(lines, prices)<<" lines have been saved\n";
+std::cout<<saveVectorA(lines, prices)<<" lines have been saved\n";
 
+std::this_thread::sleep_for(std::chrono::hours(1));
+}
 
     return 0;
 }

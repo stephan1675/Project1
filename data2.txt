@@ -1,0 +1,6 @@
+test hello
+23456.897
+house 2001
+telefon 30
+shirt 5
+Ich schreib was Neues rein

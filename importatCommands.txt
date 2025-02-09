@@ -10,8 +10,11 @@ Es unterstützt verschiedene Protokolle wie HTTP, HTTPS, FTP, SFTP und mehr.
 
 c++ code:
 **********
+//Kommandozeile ausführen
 system():
 system("ls -l");  // Führt "ls -l" in der Shell aus
 
 std::unique_ptr<FILE, decltype(&pclose)> pipe(popen("ls -l", "r"), pclose); //führt shellkommando aus und liest es
 
+ // 1 Stunde schlafen in einer while schlaufe
+    std::this_thread::sleep_for(std::chrono::hours(1));

@@ -4,6 +4,8 @@
 #include <string>
 #include <cstdio>
 #include <memory>
+#include <chrono>
+#include <thread>
 
 
 /**
@@ -65,6 +67,29 @@ int saveLines( std::vector<std::string>& lines, const std::string& readInFile){
 int saveVector(std::vector<std::string>& lines, const std::string& where){
     int count=0;
     std::ofstream file(where);
+    if(!file){
+        std::cerr << "Fehler beim Öffnen der Datei:\n"  << where <<std::endl;
+        return -1;
+    }
+    for (const auto& line : lines)
+    {
+        file << line << '\n';
+        count++;
+    }
+    return count;
+
+}
+
+/**
+ * @brief This function saves a dynamic vector line by line to a file in appendix mode
+ * 
+ * @param lines     what to save    
+ * @param where     where to save
+ * @return int      how many elements were saved
+ */
+int saveVectorA(std::vector<std::string>& lines, const std::string& where){
+    int count=0;
+    std::ofstream file(where, std::ios::app);
     if(!file){
         std::cerr << "Fehler beim Öffnen der Datei:\n"  << where <<std::endl;
         return -1;
