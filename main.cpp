@@ -46,7 +46,7 @@ std::cout<<execRead(bitcoinPrice, lines)<<" lines have been retured from the com
 printVector(lines);
 std::cout<<saveVectorA(lines, prices)<<" lines have been saved\n";
 
-std::this_thread::sleep_for(std::chrono::hours(1));
+std::this_thread::sleep_for(std::chrono::seconds(5));
 }
 
     return 0;
