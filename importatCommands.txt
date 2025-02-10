@@ -18,3 +18,13 @@ std::unique_ptr<FILE, decltype(&pclose)> pipe(popen("ls -l", "r"), pclose); //f√
 
  // 1 Stunde schlafen in einer while schlaufe
     std::this_thread::sleep_for(std::chrono::hours(1));
+
+meta chatbot:
+*************
+curl -X POST "https://api.together.xyz/v1/chat/completions" \
+  -H "Authorization: Bearer $TOGETHER_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
+    "messages": [{"role": "user", "content": "What are some fun things to do in New York?"}]
+  }'
