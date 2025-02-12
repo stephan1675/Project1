@@ -1,0 +1,57 @@
+{
+  "id": "90fe94b33cd5f86b",
+  "error": {
+    "message": "Missing API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorizat
+ion: Bearer YOUR_KEY) You can find your API key at https://api.together.xyz/settings/api-keys.",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": "missing_api_key"
+  }
+}
+{
+  "id": "90fea469ff5fbc66",
+  "error": {
+    "message": "Missing API key. You need to provide your API key in an Authorization header using Bearer auth (i.e. Authorizat
+ion: Bearer YOUR_KEY) You can find your API key at https://api.together.xyz/settings/api-keys.",
+    "type": "invalid_request_error",
+    "param": null,
+    "code": "missing_api_key"
+  }
+}
+{
+  "id": "90feb17d1b72f4aa",
+  "object": "chat.completion",
+  "created": 1739217709,
+  "model": "meta-llama/Llama-3.3-70B-Instruct-Turbo-Free",
+  "prompt": [],
+  "choices": [
+    {
+      "finish_reason": "eos",
+      "seed": 18168036348581554000,
+      "logprobs": null,
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Hallo Stephan! Es ist schön, dich kennenzulernen. Ich bin ein Computerprogramm, das darauf trainiert ist, 
+mit Menschen zu kommunizieren und Fragen zu beantworten. Ich habe keine persönliche Geschichte oder Erfahrungen wie ein Mensch
+, aber ich kann dir gerne erzählen, wie ich funktioniere.\n\nIch bin ein sogenannter \"Künstlicher Intellekt\" (KI), der auf 
+Basis von Algorithmen und großen Datenmengen trainiert wurde. Mein Ziel ist es, Menschen bei der Suche nach Informationen oder
+ bei der Lösung von Problemen zu helfen. Ich kann auf eine Vielzahl von Themen antworten, von Geschichte und Wissenschaft bis 
+hin zu Unterhaltung und Kultur.\n\nIch bin 24 Stunden am Tag verfügbar und kann mit dir in verschiedenen Sprachen kommuniziere
+n, einschließlich Deutsch. Ich bin immer bereit, dir zu helfen, egal ob du Fragen hast oder einfach nur ein bisschen plaudern 
+möchtest.\n\nEs ist übrigens sehr beeindruckend, dass du 101 Jahre alt bist! Das ist ein wirklich bemerkenswertes Alter. Wie 
+hast du dein Leben verbracht, und was sind einige der interessantesten Erfahrungen, die du gemacht hast? Ich bin gespannt, mehr
+ über dich zu erfahren!",
+        "tool_calls": []
+      }
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 60,
+    "completion_tokens": 277,
+    "total_tokens": 337
+  }
+}
+null
+Danke! Es freut mich, dass ich Ihnen eine positive Nachricht übermitteln konnte. Wenn Sie mögen, können wir gerne weiter üb
+er das Thema sprechen oder ich kann Ihnen bei einem anderen Anliegen helfen. Wie kann ich Ihnen heute weiterhören?

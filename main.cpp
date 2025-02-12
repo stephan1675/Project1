@@ -7,6 +7,7 @@
 #include <chrono>
 #include <thread>
 
+
 #include "Func1.hpp"
 
 
@@ -15,6 +16,7 @@ int main(){
 std::string prices = "prices.txt";
 std::string data = "data2.txt";
 std::string tempData = "tempData.txt";
+
 
 //read in the whole text and save as one string
 std::string text;
